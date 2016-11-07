@@ -4,11 +4,7 @@ let express = require('express'),
     app = express(),
     load = require('express-load'),
     db = require('./app/mongo/mongoConnection'),
-    url = 'mongodb://localhost:27017/cookbook'
-
-if (process.env.MONGODB_URI) {
-    url = MONGODB_URI
-}
+    url = process.env.MONGODB_URI ? MONGODB_URI : 'mongodb://localhost:27017/cookbook'
 
 process.db = db;
 
