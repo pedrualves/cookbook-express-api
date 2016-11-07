@@ -17,7 +17,7 @@ db.connect('mongodb://heroku_cmbkjpkr:q7i1u0lhd9n6m542b6g9igj8jc@ds145997.mlab.c
         console.log('Unable to connect to Mongo.')
         process.exit(1)
     } else {
-        app.listen(3000, function() {
+        app.listen(process.env.PORT || 3000, function() {
             console.log('Here we go...')
         })
     }
