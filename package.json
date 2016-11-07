@@ -1,33 +1,34 @@
 {
-  "name": "express-api",
-  "version": "1.0.0",
-  "description": "project cookbook nodejs express api",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pedrualves/cookbook-express-api.git"
-  },
-  "keywords": [
-    "cookbook",
-    "cook",
-    "book",
-    "node",
-    "nodejs",
-    "express",
-    "api"
-  ],
-  "author": "pedrualves",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/pedrualves/cookbook-express-api/issues"
-  },
-  "homepage": "https://github.com/pedrualves/cookbook-express-api#readme",
-  "dependencies": {
-    "express": "^4.14.0",
-    "express-load": "^1.1.15",
-    "mongodb": "^2.2.11"
-  }
+    "name": "express-api",
+    "version": "1.0.0",
+    "description": "project cookbook nodejs express api",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pedrualves/cookbook-express-api.git"
+    },
+    "keywords": [
+        "cookbook",
+        "cook",
+        "book",
+        "node",
+        "nodejs",
+        "express",
+        "api"
+    ],
+    "author": "pedrualves",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/pedrualves/cookbook-express-api/issues"
+    },
+    "homepage": "https://github.com/pedrualves/cookbook-express-api#readme",
+    "dependencies": {
+        "express": "^4.14.0",
+        "express-load": "^1.1.15",
+        "mongodb": "^2.2.11"
+    },
+    "start": "node app.js"
 }
