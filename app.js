@@ -10,7 +10,7 @@ process.db = db;
 
 load('routes', {
     cwd: 'app'
-}).then('mongo').into(app)
+}).then('mongo').then('model').into(app)
 
 db.connect(url, function(err) {
     if (err) {

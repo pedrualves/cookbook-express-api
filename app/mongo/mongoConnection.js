@@ -1,6 +1,7 @@
 'use strict';
 
-let MongoClient = require('mongodb').MongoClient,
+let Mongo = require('mongodb'),
+    MongoClient = Mongo.MongoClient,
     state = {
         db: null,
     }
@@ -17,6 +18,10 @@ exports.connect = function(url, done) {
 
 exports.get = function() {
     return state.db
+}
+
+exports.ObjectID = function() {
+    return require('mongodb').ObjectID
 }
 
 exports.close = function(done) {

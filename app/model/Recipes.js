@@ -2,12 +2,15 @@
 
 function Recipes() {
     this._recipes = process.db.get().collection('recipes')
+    this._ObjectID = process.db.ObjectID()
 }
 
-Recipes.prototype.findOne = function(cb) {
-    this._recipes.find().limit(1).next((err, docs) => {
+Recipes.prototype.findById = function(id, cb) {
+    this._recipes.find({
+        _id: new this._ObjectID(id)
+    }).next((err, doc) => {
         this._recipes.close;
-        cb(err, docs)
+        cb(err, doc)
     })
 }
 
@@ -27,7 +30,6 @@ Recipes.prototype.pageList = function(page, qtd, cb) {
     }
 
     this._recipes.find({}, {
-        '_id': 0,
         'nome': 1
     }).skip(_page).limit(_qtd).sort({
         'nome': 1
