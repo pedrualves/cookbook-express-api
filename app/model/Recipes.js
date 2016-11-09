@@ -5,6 +5,20 @@ function Recipes() {
     this._ObjectID = process.db.ObjectID()
 }
 
+Recipes.prototype.insert = function(recipe, cb) {
+    if (!!recipe.nome && !!recipe.secao) {
+        this._recipes.insertOne({
+            nome: recipe.nome,
+            secao: recipe.secao
+        }, (err, doc) => {
+            this._recipes.close;
+            cb(err, doc)
+        })
+    } else {
+        cb("invalid object", null)
+    }
+}
+
 Recipes.prototype.findById = function(id, cb) {
     this._recipes.find({
         _id: new this._ObjectID(id)
