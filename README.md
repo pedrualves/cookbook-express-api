@@ -52,3 +52,32 @@ sample payload: {
   ]
 }
 ```
+## find and modify recipe
+
+```javascript
+method: PUT
+
+endpoit: http://running.com/api/recipe
+
+{
+    "_id": "5744eff20ca7832b5c745abf",
+    "nome": "abc2",
+    "secao": [{
+        "nome": " Ingredientes",
+        "conteudo": [
+            "123"
+        ]
+    }, {
+        "nome": " Modo de Preparo",
+        "conteudo": [
+            "456"
+        ]
+    }, {
+        "nome": " Outras informações",
+        "conteudo": [
+            "789"
+        ]
+    }]
+}
+
+```
