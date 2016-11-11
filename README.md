@@ -7,6 +7,11 @@ method: GET
 
 endpoint: http://running.com/api/recipes/
           http://running.com/api/recipes/:page?/:quantity?
+          
+return: {
+          500: "internal error",
+          200: "list of recipes with id and name"
+        }
 ```
 
 
@@ -16,6 +21,12 @@ endpoint: http://running.com/api/recipes/
 method: GET
 
 endpoint: http://running.com/api/recipe/:id
+
+return: {
+          500: "internal error",
+          200: "the requested recipe of id",
+          204: "recipe not found"
+        }
 ```
 
 
@@ -51,6 +62,13 @@ sample payload: {
     }
   ]
 }
+
+
+return: {
+          500: "internal error",
+          200: {inserted: true},
+          204: {inserted: false}
+        }
 ```
 ## find and modify recipe
 
@@ -80,6 +98,11 @@ sample payload: {
     }]
 }
 
+return: {
+          500: "internal error",
+          200: {updated: true},
+          204: {updated: false}
+        }
 ```
 
 ## find and REMOVE recipe
@@ -89,4 +112,10 @@ method: DELETE
 
 endpoit: http://running.com/api/recipe/:id
 
+
+return: {
+          500: "internal error",
+          200: {removed: true},
+          204: {removed: false}
+        }
 ```
