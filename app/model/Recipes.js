@@ -5,6 +5,24 @@ function Recipes() {
     this._ObjectID = process.db.ObjectID()
 }
 
+Recipes.prototype.update = function(recipe, cb) {
+    if (!!recipe._id && !!recipe.nome && !!recipe.secao) {
+        this._recipes.findAndModify({
+            "_id": new this._ObjectID(recipe._id)
+        }, [], {
+            "$set": {
+                "nome": recipe.nome,
+                "secao": recipe.secao
+            }
+        },{ new:false }, (err, doc) => {
+            this._recipes.close;
+            cb(err, doc)
+        })
+    } else {
+        cb("invalid object", null)
+    }
+}
+
 Recipes.prototype.insert = function(recipe, cb) {
     if (!!recipe.nome && !!recipe.secao) {
         this._recipes.insertOne({
