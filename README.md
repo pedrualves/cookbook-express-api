@@ -59,7 +59,7 @@ method: PUT
 
 endpoit: http://running.com/api/recipe
 
-{
+sample payload: {
     "_id": "5744eff20ca7832b5c745abf",
     "nome": "abc2",
     "secao": [{
@@ -79,5 +79,14 @@ endpoit: http://running.com/api/recipe
         ]
     }]
 }
+
+```
+
+## find and REMOVE recipe
+
+```javascript
+method: DELETE
+
+endpoit: http://running.com/api/recipe/:id
 
 ```
