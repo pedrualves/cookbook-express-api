@@ -5,6 +5,20 @@ function Recipes() {
     this._ObjectID = process.db.ObjectID()
 }
 
+Recipes.prototype.remove = function(_id, cb) {
+    if (!!_id) {
+        this._recipes.findAndRemove({
+            "_id": new this._ObjectID(_id)
+        }, [], (err, doc) => {
+            this._recipes.close;
+            console.log(err, doc);
+            cb(err, doc)
+        })
+    } else {
+        cb("invalid id", null)
+    }
+}
+
 Recipes.prototype.update = function(recipe, cb) {
     if (!!recipe._id && !!recipe.nome && !!recipe.secao) {
         this._recipes.findAndModify({
@@ -14,7 +28,9 @@ Recipes.prototype.update = function(recipe, cb) {
                 "nome": recipe.nome,
                 "secao": recipe.secao
             }
-        },{ new:false }, (err, doc) => {
+        }, {
+            new: false
+        }, (err, doc) => {
             this._recipes.close;
             cb(err, doc)
         })

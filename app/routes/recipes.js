@@ -1,6 +1,28 @@
 'use strict';
 
 module.exports = function(app) {
+    app.delete('/api/recipe/:id', function(req, res) {
+        let recipes = new app.model.Recipes(),
+            newRecipe = req.body
+
+        recipes.remove(req.params.id, function(err, result) {
+            if (err) {
+                res.status(500).json(err)
+            } else {
+                if (result.ok === 1) {
+                    res.status(200).json({
+                        removed: true
+                    })
+                } else {
+                    res.status(204).json({
+                        removed: false
+                    })
+                }
+
+            }
+        })
+    })
+
     app.put('/api/recipe/', function(req, res) {
         let recipes = new app.model.Recipes(),
             newRecipe = req.body
