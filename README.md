@@ -1,6 +1,9 @@
-# cookbook-express-api
+# A cookbook of kitchen recipes.
+# Simple and rustic example of nodejs using express framework.
 
-## get list recipes
+## cookbook-express-api
+
+### get list recipes
 
 ```javascript
 method: GET
@@ -14,8 +17,7 @@ return: {
         }
 ```
 
-
-## get by recipe by id
+### get by recipe by id
 
 ```javascript
 method: GET
@@ -63,14 +65,13 @@ sample payload: {
   ]
 }
 
-
 return: {
           500: "internal error",
           200: {inserted: true},
           204: {inserted: false}
         }
 ```
-## find and modify recipe
+### find and modify recipe
 
 ```javascript
 method: PUT
@@ -105,13 +106,12 @@ return: {
         }
 ```
 
-## find and REMOVE recipe
+### find and REMOVE recipe
 
 ```javascript
 method: DELETE
 
 endpoit: http://running.com/api/recipe/:id
-
 
 return: {
           500: "internal error",
