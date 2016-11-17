@@ -32,7 +32,7 @@ return: {
 ```
 
 
-## insert new recipe
+### insert new recipe
 
 ```javascript
 method: POST
