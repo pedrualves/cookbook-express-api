@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Cookbook-express-api : A cookbook of kitchen recipes. Simple and rustic example of nodejs using express framework.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Cookbook-express-api</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/pedrualves/cookbook-express-api">View on GitHub</a>
+
+          <h1 id="project_title">Cookbook-express-api</h1>
+          <h2 id="project_tagline">A cookbook of kitchen recipes. Simple and rustic example of nodejs using express framework.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/pedrualves/cookbook-express-api/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/pedrualves/cookbook-express-api/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="a-cookbook-of-kitchen-recipes" class="anchor" href="#a-cookbook-of-kitchen-recipes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A cookbook of kitchen recipes.</h1>
+
+<h1>
+<a id="simple-and-rustic-example-of-nodejs-using-express-framework" class="anchor" href="#simple-and-rustic-example-of-nodejs-using-express-framework" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Simple and rustic example of nodejs using express framework.</h1>
+
+<h2>
+<a id="cookbook-express-api" class="anchor" href="#cookbook-express-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>cookbook-express-api</h2>
+
+<h3>
+<a id="get-list-recipes" class="anchor" href="#get-list-recipes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>get list recipes</h3>
+
+<div class="highlight highlight-source-js"><pre>method<span class="pl-k">:</span> <span class="pl-c1">GET</span>
+
+endpoint<span class="pl-k">:</span> https<span class="pl-k">:</span><span class="pl-c">//cookbook-express-api.herokuapp.com/api/recipes/</span>
+          https<span class="pl-k">:</span><span class="pl-c">//cookbook-express-api.herokuapp.com/api/recipes/:page?/:quantity?</span>
+
+return<span class="pl-k">:</span> {
+          <span class="pl-c1">500</span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>internal error<span class="pl-pds">"</span></span>,
+          <span class="pl-c1">200</span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>list of recipes with id and name<span class="pl-pds">"</span></span>
+        }</pre></div>
+
+<h3>
+<a id="get-by-recipe-by-id" class="anchor" href="#get-by-recipe-by-id" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>get by recipe by id</h3>
+
+<div class="highlight highlight-source-js"><pre>method<span class="pl-k">:</span> <span class="pl-c1">GET</span>
+
+endpoint<span class="pl-k">:</span> https<span class="pl-k">:</span><span class="pl-c">//cookbook-express-api.herokuapp.com/api/recipe/:id</span>
+
+return<span class="pl-k">:</span> {
+          <span class="pl-c1">500</span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>internal error<span class="pl-pds">"</span></span>,
+          <span class="pl-c1">200</span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>the requested recipe of id<span class="pl-pds">"</span></span>,
+          <span class="pl-c1">204</span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>recipe not found<span class="pl-pds">"</span></span>
+        }</pre></div>
+
+<h3>
+<a id="insert-new-recipe" class="anchor" href="#insert-new-recipe" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>insert new recipe</h3>
+
+<div class="highlight highlight-source-js"><pre>method<span class="pl-k">:</span> <span class="pl-c1">POST</span>
+
+endpoint<span class="pl-k">:</span> https<span class="pl-k">:</span><span class="pl-c">//cookbook-express-api.herokuapp.com/api/recipe/</span>
+
+sample payload<span class="pl-k">:</span> {
+  <span class="pl-s"><span class="pl-pds">"</span>nome<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Brownie de Chocolate com Gengibre<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>secao<span class="pl-pds">"</span></span><span class="pl-k">:</span> [
+    {
+      <span class="pl-s"><span class="pl-pds">"</span>nome<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span> Ingredientes<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>conteudo<span class="pl-pds">"</span></span><span class="pl-k">:</span> [
+        <span class="pl-s"><span class="pl-pds">"</span>50 g farinha de milho fina<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>10 g de cacau em pó<span class="pl-pds">"</span></span>
+      ]
+    },
+    {
+      <span class="pl-s"><span class="pl-pds">"</span>nome<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span> Modo de Preparo<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>conteudo<span class="pl-pds">"</span></span><span class="pl-k">:</span> [
+        <span class="pl-s"><span class="pl-pds">"</span>1 - Coloque numa tigela a farinha de milho fina e o cacau em pó.<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>2 - Misture e reserve.<span class="pl-pds">"</span></span>
+      ]
+    },
+    {
+      <span class="pl-s"><span class="pl-pds">"</span>nome<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span> Outras informações<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>conteudo<span class="pl-pds">"</span></span><span class="pl-k">:</span> [
+        <span class="pl-s"><span class="pl-pds">"</span>Rendimento: 20 porções <span class="pl-pds">"</span></span>
+      ]
+    }
+  ]
+}
+
+return<span class="pl-k">:</span> {
+          <span class="pl-c1">500</span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>internal error<span class="pl-pds">"</span></span>,
+          <span class="pl-c1">200</span><span class="pl-k">:</span> {inserted<span class="pl-k">:</span> <span class="pl-c1">true</span>},
+          <span class="pl-c1">204</span><span class="pl-k">:</span> {inserted<span class="pl-k">:</span> <span class="pl-c1">false</span>}
+        }</pre></div>
+
+<h3>
+<a id="find-and-modify-recipe" class="anchor" href="#find-and-modify-recipe" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>find and modify recipe</h3>
+
+<div class="highlight highlight-source-js"><pre>method<span class="pl-k">:</span> <span class="pl-c1">PUT</span>
+
+endpoit<span class="pl-k">:</span> https<span class="pl-k">:</span><span class="pl-c">//cookbook-express-api.herokuapp.com/api/recipe</span>
+
+sample payload<span class="pl-k">:</span> {
+    <span class="pl-s"><span class="pl-pds">"</span>_id<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>5744eff20ca7832b5c745abf<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>nome<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>abc2<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>secao<span class="pl-pds">"</span></span><span class="pl-k">:</span> [{
+        <span class="pl-s"><span class="pl-pds">"</span>nome<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span> Ingredientes<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>conteudo<span class="pl-pds">"</span></span><span class="pl-k">:</span> [
+            <span class="pl-s"><span class="pl-pds">"</span>123<span class="pl-pds">"</span></span>
+        ]
+    }, {
+        <span class="pl-s"><span class="pl-pds">"</span>nome<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span> Modo de Preparo<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>conteudo<span class="pl-pds">"</span></span><span class="pl-k">:</span> [
+            <span class="pl-s"><span class="pl-pds">"</span>456<span class="pl-pds">"</span></span>
+        ]
+    }, {
+        <span class="pl-s"><span class="pl-pds">"</span>nome<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span> Outras informações<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>conteudo<span class="pl-pds">"</span></span><span class="pl-k">:</span> [
+            <span class="pl-s"><span class="pl-pds">"</span>789<span class="pl-pds">"</span></span>
+        ]
+    }]
+}
+
+return<span class="pl-k">:</span> {
+          <span class="pl-c1">500</span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>internal error<span class="pl-pds">"</span></span>,
+          <span class="pl-c1">200</span><span class="pl-k">:</span> {updated<span class="pl-k">:</span> <span class="pl-c1">true</span>},
+          <span class="pl-c1">204</span><span class="pl-k">:</span> {updated<span class="pl-k">:</span> <span class="pl-c1">false</span>}
+        }</pre></div>
+
+<h3>
+<a id="find-and-remove-recipe" class="anchor" href="#find-and-remove-recipe" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>find and REMOVE recipe</h3>
+
+<div class="highlight highlight-source-js"><pre>method<span class="pl-k">:</span> <span class="pl-c1">DELETE</span>
+
+endpoit<span class="pl-k">:</span> https<span class="pl-k">:</span><span class="pl-c">//cookbook-express-api.herokuapp.com/api/recipe/:id</span>
+
+return<span class="pl-k">:</span> {
+          <span class="pl-c1">500</span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>internal error<span class="pl-pds">"</span></span>,
+          <span class="pl-c1">200</span><span class="pl-k">:</span> {removed<span class="pl-k">:</span> <span class="pl-c1">true</span>},
+          <span class="pl-c1">204</span><span class="pl-k">:</span> {removed<span class="pl-k">:</span> <span class="pl-c1">false</span>}
+        }</pre></div>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Cookbook-express-api maintained by <a href="https://github.com/pedrualves">pedrualves</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
