@@ -18,9 +18,9 @@ module.exports = function(app) {
                         removed: false
                     })
                 }
-
             }
         })
+        req.visitor.pageview("/delete").send()
     })
 
     app.put('/api/recipe/', function(req, res) {
@@ -40,8 +40,8 @@ module.exports = function(app) {
                         updated: false
                     })
                 }
-
             }
+            req.visitor.pageview("/update").send()
         })
     })
 
@@ -62,8 +62,8 @@ module.exports = function(app) {
                         inserted: false
                     })
                 }
-
             }
+            req.visitor.pageview("/insert").send()
         })
     })
 
@@ -78,8 +78,8 @@ module.exports = function(app) {
                 } else {
                     res.status(204).json(docs)
                 }
-
             }
+            req.visitor.pageview("/getById").send()
         })
     })
 
@@ -91,10 +91,12 @@ module.exports = function(app) {
             } else {
                 res.status(200).json(docs)
             }
+            req.visitor.pageview("/list").send()
         })
     })
 
     app.get('/', function(req, res) {
         res.status(200).sendFile('index.html')
+        req.visitor.pageview("/index").send()
     })
 }

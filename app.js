@@ -5,7 +5,12 @@ let express = require('express'),
     load = require('express-load'),
     db = require('./app/mongo/mongoConnection'),
     url = process.env.MONGODB_URI ? process.env.MONGODB_URI : 'mongodb://localhost:27017/cookbook',
-    bodyParser = require('body-parser')
+    bodyParser = require('body-parser'),
+    ua = require('universal-analytics')
+
+app.use(ua.middleware(process.env.GOOGLE_ANALYTICS, {
+    cookieName: '_ga'
+}));
 
 app.use(express.static('./public'));
 
