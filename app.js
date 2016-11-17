@@ -6,7 +6,10 @@ let express = require('express'),
     db = require('./app/mongo/mongoConnection'),
     url = process.env.MONGODB_URI ? process.env.MONGODB_URI : 'mongodb://localhost:27017/cookbook',
     bodyParser = require('body-parser'),
-    ua = require('universal-analytics')
+    ua = require('universal-analytics'),
+    compression = require('compression')
+
+app.use(compression());
 
 app.use(ua.middleware(process.env.GOOGLE_ANALYTICS, {
     cookieName: '_ga'
@@ -32,7 +35,7 @@ db.connect(url, function(err) {
         process.exit(1)
     } else {
         app.listen(process.env.PORT || 3000, function() {
-            console.log('Here we go...')
+            console.log('Lets cook...')
         })
     }
 })
