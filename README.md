@@ -1,5 +1,6 @@
-# A cookbook of kitchen recipes.
 # Simple and rustic example of nodejs using express framework.
+
+Look at demo here: http://cookbook-express-api.herokuapp.com
 
 ## cookbook-express-api
 
