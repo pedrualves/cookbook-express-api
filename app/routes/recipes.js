@@ -9,7 +9,7 @@ module.exports = function(app) {
             if (err) {
                 res.status(500).json(err)
             } else {
-                if (result.ok === 1) {
+                if (result.ok) {
                     res.status(200).json({
                         removed: true
                     })
@@ -31,7 +31,7 @@ module.exports = function(app) {
             if (err) {
                 res.status(500).json(err)
             } else {
-                if (result.ok === 1) {
+                if (result.ok) {
                     res.status(200).json({
                         updated: true
                     })
@@ -53,7 +53,7 @@ module.exports = function(app) {
             if (err) {
                 res.status(500).json(err)
             } else {
-                if (result.insertedCount === 1) {
+                if (result.insertedCount) {
                     res.status(200).json({
                         inserted: true
                     })
@@ -83,7 +83,7 @@ module.exports = function(app) {
         })
     })
 
-    app.get(['/', '/api/recipes/:page?/:qtd?'], function(req, res) {
+    app.get('/api/recipes/:page?/:qtd?', function(req, res) {
         let recipes = new app.model.Recipes();
         recipes.pageList(req.params.page, req.params.qtd, (err, docs) => {
             if (err) {
@@ -92,5 +92,9 @@ module.exports = function(app) {
                 res.status(200).json(docs)
             }
         })
+    })
+
+    app.get('/', function(req, res) {
+        res.status(200).sendFile('index.html')
     })
 }
