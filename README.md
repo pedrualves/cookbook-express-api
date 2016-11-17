@@ -8,8 +8,8 @@
 ```javascript
 method: GET
 
-endpoint: http://running.com/api/recipes/
-          http://running.com/api/recipes/:page?/:quantity?
+endpoint: https://cookbook-express-api.herokuapp.com/api/recipes/
+          https://cookbook-express-api.herokuapp.com/api/recipes/:page?/:quantity?
           
 return: {
           500: "internal error",
@@ -22,7 +22,7 @@ return: {
 ```javascript
 method: GET
 
-endpoint: http://running.com/api/recipe/:id
+endpoint: https://cookbook-express-api.herokuapp.com/api/recipe/:id
 
 return: {
           500: "internal error",
@@ -37,7 +37,7 @@ return: {
 ```javascript
 method: POST
 
-endpoint: http://running.com/api/recipe/
+endpoint: https://cookbook-express-api.herokuapp.com/api/recipe/
 
 sample payload: {
   "nome": "Brownie de Chocolate com Gengibre",
@@ -76,7 +76,7 @@ return: {
 ```javascript
 method: PUT
 
-endpoit: http://running.com/api/recipe
+endpoit: https://cookbook-express-api.herokuapp.com/api/recipe
 
 sample payload: {
     "_id": "5744eff20ca7832b5c745abf",
@@ -111,7 +111,7 @@ return: {
 ```javascript
 method: DELETE
 
-endpoit: http://running.com/api/recipe/:id
+endpoit: https://cookbook-express-api.herokuapp.com/api/recipe/:id
 
 return: {
           500: "internal error",
