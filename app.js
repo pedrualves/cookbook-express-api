@@ -7,9 +7,12 @@ let express = require('express'),
     url = process.env.MONGODB_URI ? process.env.MONGODB_URI : 'mongodb://localhost:27017/cookbook',
     bodyParser = require('body-parser')
 
+app.use(express.static('./public'));
+
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
 app.use(bodyParser.json());
 
 load('routes', {
