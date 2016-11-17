@@ -8,6 +8,8 @@ let express = require('express'),
     bodyParser = require('body-parser'),
     ua = require('universal-analytics')
 
+console.log('process.env.GOOGLE_ANALYTICS ', process.env.GOOGLE_ANALYTICS);
+
 app.use(ua.middleware(process.env.GOOGLE_ANALYTICS, {
     cookieName: '_ga'
 }));
