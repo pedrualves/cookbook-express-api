@@ -95,8 +95,4 @@ module.exports = function(app) {
         })
     })
 
-    app.get('/', function(req, res) {
-        req.visitor.pageview("/home").send()
-        // res.status(200).sendFile('index.html')
-    })
 }

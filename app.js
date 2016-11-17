@@ -15,7 +15,10 @@ app.use(ua.middleware(process.env.GOOGLE_ANALYTICS, {
     cookieName: '_ga'
 }));
 
-app.use(express.static('./public'));
+app.get(['/', ''], function(req, res) {
+    res.status(200).sendFile(__dirname + '/public/index.html')
+    req.visitor.pageview("/home").send()
+})
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -31,11 +34,11 @@ process.db = db;
 
 db.connect(url, function(err) {
     if (err) {
-        console.log('Unable to connect to Mongo.')
+        console.log('We can\'t cook and to connect to mongo...')
         process.exit(1)
     } else {
         app.listen(process.env.PORT || 3000, function() {
-            console.log('Lets cook...')
+            console.log('Let\'s cook...')
         })
     }
 })
