@@ -1,6 +1,6 @@
 'use strict';
 
-let express = require('express'),
+const express = require('express'),
     app = express(),
     load = require('express-load'),
     db = require('./app/mongo/mongoConnection'),

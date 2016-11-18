@@ -1,6 +1,6 @@
 'use strict';
 
-let Mongo = require('mongodb'),
+const Mongo = require('mongodb'),
     MongoClient = Mongo.MongoClient,
     state = {
         db: null,

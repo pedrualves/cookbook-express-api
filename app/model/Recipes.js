@@ -11,7 +11,6 @@ Recipes.prototype.remove = function(_id, cb) {
             "_id": new this._ObjectID(_id)
         }, [], (err, doc) => {
             this._recipes.close;
-            console.log(err, doc);
             cb(err, doc)
         })
     } else {
@@ -67,11 +66,12 @@ Recipes.prototype.pageList = function(page, qtd, cb) {
         _qtd = 100
 
     page = parseInt(page)
-    qtd = parseInt(qtd)
 
     if (!!page && Number.isInteger(page) && page > 0) {
         _page = parseInt(page)
     }
+
+    qtd = parseInt(qtd)
 
     if (!!qtd && Number.isInteger(qtd) && qtd > 0) {
         _qtd = parseInt(qtd)
