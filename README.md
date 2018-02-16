@@ -1,6 +1,6 @@
 # Simple and rustic example of nodejs using express framework.
 
-Look at demo here: http://cookbook-express-api.herokuapp.com
+Look at demo here: [http://cookbook-express-api.herokuapp.com](http://cookbook-express-api.herokuapp.com)
 
 ## cookbook-express-api
 
@@ -11,7 +11,7 @@ method: GET
 
 endpoint: https://cookbook-express-api.herokuapp.com/api/recipes/
           https://cookbook-express-api.herokuapp.com/api/recipes/:page?/:quantity?
-          
+
 return: {
           500: "internal error",
           200: "list of recipes with id and name"
@@ -31,7 +31,6 @@ return: {
           204: "recipe not found"
         }
 ```
-
 
 ### insert new recipe
 
@@ -72,6 +71,7 @@ return: {
           204: {inserted: false}
         }
 ```
+
 ### find and modify recipe
 
 ```javascript
@@ -120,3 +120,6 @@ return: {
           204: {removed: false}
         }
 ```
+
+
+
